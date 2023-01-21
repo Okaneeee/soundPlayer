@@ -11,14 +11,13 @@ Custom module to play **.wav** file in python
 
 #
 
-## Table of contents:
+## 📋 Table of contents:
 1. [Modules/Libraries](#modlib)
 2. [Developed](#dev)
 3. [Copyrights](#cpr)
 
 #
 
-<!-- MODULES/LIBRARIES -->
 ## 📚 Modules/Libraries: <a name="modlib"></a>
 - `threading` for multi-threading
 - `wave` for parsing & opening WAVE file
