@@ -2,7 +2,7 @@ from threading import Thread
 from wave import Wave_read, open
 from pyaudio import PyAudio, Stream
 from typing_extensions import Self
-from Exception import FileExtensionException
+from errors.Exception import FileExtensionException
 
 class SoundPlayer:
     """
@@ -10,7 +10,8 @@ class SoundPlayer:
     """
     def __init__(self: Self, file_name: str):
         extension : list[str] = file_name.split(".")
-        if (extension != ".wav"):
+        if (extension[-1] != "wav"):
+            print(extension)
             raise FileExtensionException(extension[-1])      
 
         # Open the wave file
@@ -60,10 +61,10 @@ if __name__ == '__main__':
     from tkinter import Tk
     w: Tk = Tk()
     
-    # mp3: str = "./medias/Rollin_at_5.mp3"
+    # mp3: str = "./audios/Rollin_at_5.mp3"
     # player = SoundPlayer(mp3) # Should raise an exception
 
-    wav: str = "./medias/Early_Riser.wav"
+    wav: str = "./audios/Early_Riser.wav"
     player = SoundPlayer(wav) # Should work
     player.play()
 
