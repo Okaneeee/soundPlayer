@@ -6,8 +6,9 @@ from Exception import FileExtensionException
 
 class SoundPlayer:
     def __init__(self: Self, file_name: str):
-        if (file_name[-4:] != ".wav"):
-            raise FileExtensionException()      
+        extension : list[str] = file_name.split(".")
+        if (extension != ".wav"):
+            raise FileExtensionException(extension[-1])      
 
         # Open the wave file
         self.file_name: str = file_name
