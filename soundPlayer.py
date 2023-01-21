@@ -5,7 +5,10 @@ from typing_extensions import Self
 from Exception import FileExtensionException
 
 class SoundPlayer:
-    def __init__(self: Self, file_name: str):        
+    def __init__(self: Self, file_name: str):
+        if (file_name[-4:] != ".wav"):
+            raise FileExtensionException()      
+
         # Open the wave file
         self.file_name: str = file_name
         self.wf: Wave_read = open(file_name, 'rb')
@@ -40,3 +43,14 @@ class SoundPlayer:
         # Close the stream and terminate the pyaudio object
         self.stream.close()
         self.p.terminate()
+
+if __name__ == '__main__':
+    from tkinter import Tk
+    w: Tk = Tk()
+    
+    player = SoundPlayer("./medias/Kiki.mp3")
+    player.play()
+
+    w.mainloop()
+
+    player.close()
