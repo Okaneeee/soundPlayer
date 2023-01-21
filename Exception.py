@@ -1,7 +1,8 @@
 from typing_extensions import Self
 
 class FileExtensionException(Exception):
-    """Exception raised for errors in the file extension
+    """
+    Exception raised for errors in the file extension
 
     Attributes:
         file_type (str, optional): File extension of the file that caused the error\n

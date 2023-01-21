@@ -17,31 +17,39 @@ class SoundPlayer:
         self.stream: Stream
 
     def play(self: Self):
-        # Open the audio stream
+        """
+        Method that starts the audio stream and launches a separate thread that reads the data from the wave file
+        and writes it to the stream using stream.write(). This way the method will start playing
+        the sound in a non-blocking way and the main thread can continue to execute other code.
+        """
+        # Opening the audio stream
         self.stream: Stream = self.p.open(
             format=self.p.get_format_from_width(self.wf.getsampwidth()),
             channels=self.wf.getnchannels(),
             rate=self.wf.getframerate(),
             output=True
         )
-        # Start the stream
         self.stream.start_stream()
-        # Create a new thread to read and write the data
-        # Alllow the music to be playing in a non-blocking way
         self.thread: Thread = Thread(target=self._play_sound)
         self.thread.start()
 
     def _play_sound(self: Self):
+        """
+        Method that reads the data from the wave file and writes it to the audio stream using a while loop
+        until there's no more data. It then stops the stream.
+        """
         self.data = self.wf.readframes(1024)
-        # Write the data to the stream until there's no more data
+
         while self.data:
             self.stream.write(self.data)
             self.data = self.wf.readframes(1024)
-        # Stop the stream
         self.stream.stop_stream()
 
     def close(self: Self):
-        # Close the stream and terminate the pyaudio object
+        """
+        Method used to close the audio stream and terminate the pyaudio object. 
+        Should be called when the sound is finished playing to free up resources that were allocated.
+        """
         self.stream.close()
         self.p.terminate()
 
