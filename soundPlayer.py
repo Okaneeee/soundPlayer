@@ -2,7 +2,18 @@ from threading import Thread
 from wave import Wave_read, open
 from pyaudio import PyAudio, Stream
 from typing_extensions import Self
-from errors.Exception import FileExtensionException
+
+class FileExtensionException(Exception):
+    """
+    Subclass to handle extension errors
+
+    Attributes:
+        file_type (str, optional): File extension of the file that caused the error\n
+        message (str, optional): Error message to send. Defaults: File must be a .wav
+    """
+    def __init__(self: Self, file_type: str|None = None, message: str = "File must be a .wav") -> None:
+        self.message = message + ' (Current file extension: .' + file_type + ')' if file_type else message
+        super().__init__(self.message)
 
 class SoundPlayer:
     """
