@@ -51,3 +51,5 @@ player.close()
 
 ## ©️ Copyrights: <a name="cpr"></a>
 All the musics used for testing were done by Kevin MacLeod and are under the [Creative Commons licenses](https://creativecommons.org/licenses/by/3.0/).
+
+Check [LICENSE.md](https://github.com/Okaneeee/soundPlayer/blob/main/LICENSE.md)
