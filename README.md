@@ -14,7 +14,8 @@ Custom module to play **.wav** file in python
 ## 📋 Table of contents:
 1. [Modules/Libraries](#modlib)
 2. [Developed](#dev)
-3. [Copyrights](#cpr)
+3. [How to use](#use)
+4. [Copyrights](#cpr)
 
 #
 
@@ -25,11 +26,28 @@ Custom module to play **.wav** file in python
 
 #
 
-## 👨‍💻 Developed:<a name="dev"></a>
+## 👨‍💻 Developed: <a name="dev"></a>
 - `soundPlayer.py` Main class to play **.wav** file 
-- `Exception.py` Subclass to handle extension errors
+- `FileExtensionException` Subclass in soundPlayer to handle extension errors
 
 #
 
-## ©️ Copyrights :<a name="cpr"></a>
+## 🌠 How to use: <a name="use"></a>
+Download the file `soundPlayer.py` and put it in the directory where you want to use it 
+```python
+from soundPlayer import SoundPlayer
+
+sound = 'path_to_wav_file'
+player = SoundPlayer(sound)
+
+# Play a sound:
+player.play()
+
+# Stop the sound being played
+player.close()
+```
+
+#
+
+## ©️ Copyrights: <a name="cpr"></a>
 All the musics used for testing were done by Kevin MacLeod and are under the [Creative Commons licenses](https://creativecommons.org/licenses/by/3.0/).
