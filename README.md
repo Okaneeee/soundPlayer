@@ -33,6 +33,9 @@ Custom module to play **.wav** file in python
 #
 
 ## 🌠 How to use: <a name="use"></a>
+Download `requirements.txt`
+Install requirements: ```pip install -r requirements.txt```
+
 Download the file `soundPlayer.py` and put it in the directory where you want to use it 
 ```python
 from soundPlayer import SoundPlayer
